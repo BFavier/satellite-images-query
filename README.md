@@ -1,7 +1,7 @@
 # satellite images query
 
-This is a Python module to query satellite images for applications in machine learning.
-You can choose the window of GPS coordinates and the resolution.
+This is a Python module to query satellite images.
+You can choose GPS coordinates window and the resolution in °/pixel of the image.
 
 The code is available under [CC-BY licence](https://fr.wikipedia.org/wiki/Licence_Creative_Commons) (can be modified, shared, and used for commerciale applications).
 The tiles are queried from the [MapTiler](https://www.maptiler.com) rest API, but you can modify the url in the "_tile_file" function to use any other provider.
