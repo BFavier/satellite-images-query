@@ -12,7 +12,7 @@ Similarly to google maps, the images provided by MapTiler are in [mercator proje
 Create a free [MapTiler](https://www.maptiler.com/) account. You can find your API key in **Account**/**Keys**.
 You can then run the sample code here below to download an image as a numpy array, and display it using matplotlib.
 
-'''python
+```python
 import satellite_images
 import matplotlib.pyplot as plt
 
@@ -22,7 +22,7 @@ API_KEY = "your_key_here"
 image = satellite_images.query((lat_min, lon_min), (lat_max, lon_max), key=API_KEY, resolution="auto")
 plt.imshow(image)
 plt.show()
-'''
+```
 
 
 ![](Paris.png)
