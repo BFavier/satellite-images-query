@@ -25,7 +25,7 @@ plt.show()
 ```
 
 
-![](Paris.png)
+![](images/Paris.png)
 
 
 The resolution can be either "min", "auto" (512 pixels wide image), "max", or the number of ° of longitude per pixel.
@@ -43,7 +43,7 @@ Here is an example that illustrates that the image corresponds to the requested 
 I downloaded land plot coordinates from the cadastral register, and have drawn the polygons over the satelite image.
 
 
-![](land_plots_outlines_white.png)
+![](images/land_plots_outlines_white.png)
 
 
 
