@@ -29,7 +29,7 @@ plt.show()
 
 
 The resolution can be either "min", "auto" (512 pixels wide image), "max", or the number of ° of longitude per pixel.
-If you set the resolution too high, the function will have to query a lot of tiles to create the image, which will slow donw the process.
+If you set the resolution too high, the function will have to query a lot of tiles to create the image, which will slow down the process.
 
 
 Some functions to convert coordinates between GPS and Mercator ([0, 0] at bottom left of the mercator map, [1, 1] at the top right) are provided.
