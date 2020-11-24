@@ -43,7 +43,7 @@ Here is an example that illustrates that the image corresponds to the requested 
 I downloaded land plot coordinates from the cadastral register, and have drawn the polygons over the satelite image.
 
 
-![](images/land_plots_outlines_white.png)
+![](images/land_plots_outline_white.png)
 
 
 
