@@ -1,9 +1,10 @@
-import requests
-import PIL
+# -*- coding: utf-8 -*-
+from typing import Tuple
 import io
 import math
+import requests
+import PIL
 import numpy as np
-from typing import Tuple
 
 Coordinate = Tuple[float, float]
 TileIndex = Tuple[int, int]
@@ -13,15 +14,15 @@ def GPS_to_mercator(lat: float, lon: float) -> Coordinate:
     """
     Converts a WGS84 GPS coordinate (lat, lon) to mercator coordinates (x, y)
 
-    Args:
-    -----
+    Parameters
+    ----------
     lat : float
         latitude (between -90° and 90°)
     lon : float
         longitude (between -180° and 180°)
 
-    Returns:
-    --------
+    Returns
+    -------
     tuple of floats :
         the (x, y) coordinate in mercator projection.
         x is between 0 and 1
@@ -38,15 +39,15 @@ def mercator_to_GPS(x: float, y: float) -> Coordinate:
     """
     Converts a mercator coordinate (x, y) to WGS84 GPS coordinate (lat, lon)
 
-    Args:
-    -----
+    Parameters
+    ----------
     x : float
         x coordinate
     y : float
         y coordinate
 
-    Returns:
-    --------
+    Returns
+    -------
     tuple of float :
         the (lat, lon) GPS coordinates.
         lat is between -90° and 90°
@@ -69,8 +70,8 @@ def mercator_to_image(position: Coordinate, image: np.ndarray,
     The top left pixel's center is at (0.5, 0.5) and the bottom right pixel's
     center is at (height - 0.5, width - 0.5).
 
-    Args:
-    -----
+    Parameters
+    ----------
     position : tuple of float
         (x, y) position in mercator coordinates
     image : np.ndarray
@@ -80,8 +81,8 @@ def mercator_to_image(position: Coordinate, image: np.ndarray,
     top_right : tuple of float
         (x, y) coordinate of the image's top_right corner
 
-    Returns:
-    --------
+    Returns
+    -------
     tuple of float :
         the (py, px) coordinates of the position in the image
     """
@@ -107,8 +108,8 @@ def GPS_to_image(gps: Coordinate, image: np.ndarray,
 
     This is a wrapper around 'mercator_to_image'.
 
-    Args:
-    -----
+    Parameters
+    ----------
     gps : tuple of float
         a (lat, lon) coordinate
     image : np.ndarray
@@ -118,8 +119,8 @@ def GPS_to_image(gps: Coordinate, image: np.ndarray,
     top_right : tuple of float
         (x, y) coordinate of the image's top_right corner
 
-    Returns:
-    --------
+    Returns
+    -------
     tuple of float :
         the (py, px) coordinates of the position in the image
     """
@@ -138,8 +139,8 @@ def _tile_file(i: int, j: int, zoom: int, key: str) -> bytes:
     where n=2**zoom. The top left tile is at (i=0, j=0)
     and the bottom right tile is at (i=n-1, j=n-1).
 
-    Args:
-    -----
+    Parameters
+    ----------
     i : int
         the y index of the tile in the grid (between 0 and 2**zoom - 1)
     j : int
@@ -149,8 +150,8 @@ def _tile_file(i: int, j: int, zoom: int, key: str) -> bytes:
     key : str
         the MapTiler API key
 
-    Returns:
-    --------
+    Returns
+    -------
     bytes :
         The binary content of the 512x512 jpg image file
     """
@@ -172,8 +173,8 @@ def tile(*args) -> np.ndarray:
 
     This is a wrapper around _tile_file(*args).
 
-    Returns:
-    --------
+    Returns
+    -------
     np.ndarray :
         the image as a numpy array
     """
@@ -189,15 +190,15 @@ def _tile_index(x: float, y: float, zoom: int) -> TileIndex:
     Coordinate outside of mercator projection are not supported:
     (0 <= x <= 1) and (0 <= y <= 1) must be verified
 
-    Args:
-    -----
+    Parameters
+    ----------
     merc : Coordinate
         a (x, y) mercator coordinate
     zoom : int
         a zoom level
 
-    Returns:
-    --------
+    Returns
+    -------
     tuple of int :
         the (i, j) coordinates in the grid of tiles
     """
@@ -212,8 +213,8 @@ def _tile_corner(i: int, j: int, zoom: int) -> Coordinate:
     For a tile index (i, j) and a zoom level,
     returns the mercator coordinates of it's bottom left corner.
 
-    Args:
-    -----
+    Parameters
+    ----------
     i : int
         the y index of the tile in the grid (between 0 and 2**zoom - 1)
     j : int
@@ -238,8 +239,8 @@ def query(bottom_left: Coordinate, top_right: Coordinate,
     The returned image is in Mercator projection,
     so latitudes of the corners must be between -85.05° and 85.05°
 
-    Args:
-    -----
+    Parameters
+    ----------
     bottom_left : tuple of float
         The tuple of (lat, lon) WGS84 GPS coordinates
         of the bottom left corner
