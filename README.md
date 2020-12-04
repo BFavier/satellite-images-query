@@ -19,7 +19,7 @@ import matplotlib.pyplot as plt
 lat_min, lon_min = (48.848, 2.295)
 lat_max, lon_max = (48.852, 2.305)
 API_KEY = "your_key_here"
-image = satellite_images.query((lat_min, lon_min), (lat_max, lon_max), key=API_KEY, resolution="max")
+image = satellite_images.query((lat_min, lon_min), (lat_max, lon_max), key=API_KEY, resolution="auto")
 plt.imshow(image)
 plt.show()
 ```
